@@ -1,0 +1,9 @@
+E:\Github\Thesis\ComTest_1.0\ComTest_1_3\bin\Debug\ComTest_1_3.exe.config
+E:\Github\Thesis\ComTest_1.0\ComTest_1_3\bin\Debug\ComTest_1_3.exe
+E:\Github\Thesis\ComTest_1.0\ComTest_1_3\bin\Debug\ComTest_1_3.pdb
+E:\Github\Thesis\ComTest_1.0\ComTest_1_3\obj\Debug\ComTest_1_3.csprojResolveAssemblyReference.cache
+E:\Github\Thesis\ComTest_1.0\ComTest_1_3\obj\Debug\ComTest_1_3.Form1.resources
+E:\Github\Thesis\ComTest_1.0\ComTest_1_3\obj\Debug\ComTest_1_3.Properties.Resources.resources
+E:\Github\Thesis\ComTest_1.0\ComTest_1_3\obj\Debug\ComTest_1_3.csproj.GenerateResource.Cache
+E:\Github\Thesis\ComTest_1.0\ComTest_1_3\obj\Debug\ComTest_1_3.exe
+E:\Github\Thesis\ComTest_1.0\ComTest_1_3\obj\Debug\ComTest_1_3.pdb
