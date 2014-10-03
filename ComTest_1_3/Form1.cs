@@ -32,6 +32,45 @@ namespace ComTest_1_3
             cboBaudRate.Items.Add(115200);
             cboBaudRate.Items.ToString();
             cboBaudRate.Text = cboBaudRate.Items[0].ToString();
+
+            // Add Handshake possibilities to dropdown
+            cboHandshake.Items.Add("None");
+            cboHandshake.Items.Add("XOnXOff");
+            cboHandshake.Items.Add("RequestToSend");
+            cboHandshake.Items.Add("RequestToSendXOnXOff");
+
+            // Add Databit possibilities to dropdown
+            cboDataBits.Items.Add(5);
+            cboDataBits.Items.Add(6);
+            cboDataBits.Items.Add(7);
+            cboDataBits.Items.Add(8);
+            cboDataBits.Text = cboDataBits.Items[0].ToString();
+
+            // Add stop bit possibilities to dropdown
+            cboStopBits.Items.Add("One");
+            cboStopBits.Items.Add("OnePointFife");
+            cboStopBits.Items.Add("Two");
+            cboStopBits.Text = cboStopBits.Items[0].ToString();
+
+            // Add parity possibilities to dropdown
+            cboParity.Items.Add("None");
+            cboParity.Items.Add("Even");
+            cboParity.Items.Add("Mark");
+            cboParity.Items.Add("Odd");
+            cboParity.Items.Add("Space");
+            cboParity.Text = cboParity.Items[0].ToString();
+
+
+
+            ComPort.DataReceived += new SerialDataReceivedEventHandler(DataRecievedHandler);
+           // rtbIncomingData.Text = ComPort.DataReceived();
+        }
+
+        private void DataRecievedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            string inData = ComPort.ReadLine();
+            // string indata = portincome.readline();
+            rtbIncomingData.Text += inData;            
         }
 
         /// <summary>
@@ -52,7 +91,6 @@ namespace ComTest_1_3
                 {
                     index += 1;
                     cboPorts.Items.Add(ArrayComPortsNames[index]);
-                    // rtbIncomingData.Text += ArrayComPortsNames[index] + "\n";
                 }
                 while (!((ArrayComPortsNames[index] == ComPortName) || (index == ArrayComPortsNames.GetUpperBound(0))));
 
@@ -92,8 +130,12 @@ namespace ComTest_1_3
             {
                 try
                 {
-                    ComPort.PortName = Convert.ToString(cboPorts.Text); // try to set chosen COM Port
-                    ComPort.BaudRate = Convert.ToInt32(cboBaudRate.Text);   // and chosen baudrate
+                    ComPort.PortName = Convert.ToString(cboPorts.Text); // try to set chosen COM Port,
+                    ComPort.BaudRate = Convert.ToInt32(cboBaudRate.Text);   // chosen baudrate,
+                    ComPort.DataBits = Convert.ToInt16(cboDataBits.Text);   // number of data bits
+                    ComPort.Handshake = (Handshake)Enum.Parse(typeof(Handshake), cboHandshake.Text);
+                    ComPort.Parity = (Parity)Enum.Parse(typeof(Parity), cboParity.Text);
+                    ComPort.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cboStopBits.Text);
                 }
                 catch (InvalidOperationException ex)
                 {
@@ -123,7 +165,16 @@ namespace ComTest_1_3
                     btnPortState.Text = "close";                        // write "closed" to port state button, if port could not be opened
                     rtbIncomingData.Text = "Port \"" + Convert.ToString(ComPort.PortName) + "\" could not be opened"; // and write wich port could not be opened to the rich text box
                 }
+
+                ComPort.ReadTimeout = 4000;
+                ComPort.WriteTimeout = 4000;
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -1,0 +1,5 @@
+C:\Users\aup1\Documents\GitHub\ComTest_1.0\ComTest_1_4\bin\Debug\ComTest_1_4.exe
+C:\Users\aup1\Documents\GitHub\ComTest_1.0\ComTest_1_4\bin\Debug\ComTest_1_4.pdb
+C:\Users\aup1\Documents\GitHub\ComTest_1.0\ComTest_1_4\obj\Debug\ComTest_1_4.csprojResolveAssemblyReference.cache
+C:\Users\aup1\Documents\GitHub\ComTest_1.0\ComTest_1_4\obj\Debug\ComTest_1_4.exe
+C:\Users\aup1\Documents\GitHub\ComTest_1.0\ComTest_1_4\obj\Debug\ComTest_1_4.pdb
